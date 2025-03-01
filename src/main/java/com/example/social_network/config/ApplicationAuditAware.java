@@ -1,6 +1,8 @@
 package com.example.social_network.config;
 
+import com.example.social_network.user.User;
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -10,6 +12,14 @@ public class ApplicationAuditAware implements AuditorAware<Integer> {
     @Override
     public Optional<Integer> getCurrentAuditor() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return Optional.empty();
+
+        if (authentication == null || !authentication.isAuthenticated() || authentication instanceof
+                AnonymousAuthenticationToken) {
+            return Optional.empty();
+        }
+
+        User usePrincipal = (User) authentication.getPrincipal();
+        return Optional.ofNullable(usePrincipal.getId());
+
     }
 }
