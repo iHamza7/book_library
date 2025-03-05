@@ -2,9 +2,9 @@ spring:
   main:
     banner-mode: off
   datasource:
-    url: jdbc:postgresql://localhost:5432/social
-    username: postgres
-    password: hamza2425@
+    url: jdbc:postgresql://localhost:5432/<your database name>
+    username: name
+    password: password
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -19,8 +19,8 @@ spring:
   mail:
     host: sandbox.smtp.mailtrap.io
     port: 2525
-    username: 40ae798944f629
-    password: 85468882d6bf82
+    username: name
+    password: password
     properties:
       mail:
       smtp:
