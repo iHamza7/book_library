@@ -28,7 +28,8 @@ public class BookMapper {
                 .archived(book.isArchived())
                 .shareable(book.isShareable())
                 .owner(book.getUser().fullName())
-// TODO --> IMPLEMENT COVER
+                //todo
+//                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
                 .build();
 
     }

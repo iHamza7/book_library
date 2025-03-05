@@ -25,7 +25,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
