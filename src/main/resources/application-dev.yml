@@ -1,0 +1,47 @@
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/social
+    username: postgres
+    password: hamza2425@
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: 40ae798944f629
+    password: 85468882d6bf82
+    properties:
+      mail:
+      smtp:
+      trust: "*"
+      auth: true
+      starttls:
+      enabled: true
+      connectiontimeout: 5000
+      timeout: 3000
+      writetimeout: 500
+
+
+application:
+  security:
+    jwt:
+      secret-key: 0f3932dffe84eb0cdbe59511fa1c09b89fcf14b384529c42b3c7906a4eee81ab461efda151467fbe916a46a9932c103247f0a85f3d69afd1e97d5ad9d28d3bce
+      expiration: 8540000
+
+  mailing:
+    frontend:
+      activation-url: "http://your-domain.com/activate?token="
+
+server:
+  port: 8088
